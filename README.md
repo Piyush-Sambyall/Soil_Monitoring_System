@@ -17,7 +17,7 @@ This project is an IoT-based soil monitoring architecture built on an ESP32 micr
 
 **Blynk IoT Mobile Dashboard**  
 The remote dashboard provides live gauges for all connected sensors.  
-![Blynk Dashboard](image_4aee78.png)
+![Blynk Dashboard](application.png)
 
 **Repository Overview**  
 ![Repository View](image_4aeb72.png)
