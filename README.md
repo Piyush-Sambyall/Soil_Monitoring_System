@@ -13,17 +13,8 @@ This project is an IoT-based soil monitoring architecture built on an ESP32 micr
 *   **Machine Learning Integration:** Sends HTTP POST requests to a Flask/Python server to classify the current environmental state.
 *   **Local Feedback:** Live updates on an SSD1306 OLED display and audible alerts via a buzzer for critical states.
 
-## 2. Visuals & Demo
 
-**Blynk IoT Mobile Dashboard**  
-The remote dashboard provides live gauges for all connected sensors.  
-![Blynk Dashboard](application.png)
-
-**Repository Overview**  
-![Repository View](image_4aeb72.png)
-*(Note: Replace `application.png` in the repository with your actual project photo if desired).*
-
-## 3. Hardware Architecture & Wiring
+## 2. Hardware Architecture & Wiring
 
 **Core Components:**
 *   **Microcontroller:** ESP32
@@ -39,7 +30,7 @@ The remote dashboard provides live gauges for all connected sensors.
 *   **Buzzer:** Pin `25`
 *   **I2C Devices (OLED, SHT4x, VCNL4040):** Standard ESP32 I2C Pins (SDA: `21`, SCL: `22`)
 
-## 4. Prerequisites & Installation
+## 3. Prerequisites & Installation
 
 ### Software Requirements
 *   [Arduino IDE](https://www.arduino.cc/en/software)
@@ -92,5 +83,11 @@ Once powered on, the ESP32 will connect to WiFi and the Blynk cloud.
 **Machine Learning Pipeline:**
 Every 5 seconds, the ESP32 formats the sensor data into a JSON payload and sends an HTTP POST request to the ML server. The server responds with a classification (`Healthy`, `Moderate`, or `Critical`). If the response is `Critical`, the ESP32 triggers the local buzzer for 5 seconds to alert nearby personnel.
 
-## 6. Author
+## 6. Visuals & Demo
+
+**Blynk IoT Mobile Dashboard**  
+The remote dashboard provides live gauges for all connected sensors.  
+![Blynk Dashboard](application.png)
+
+## 7. Author
 **Piyush Sambyal**
