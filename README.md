@@ -89,5 +89,5 @@ Every 5 seconds, the ESP32 formats the sensor data into a JSON payload and sends
 The remote dashboard provides live gauges for all connected sensors.  
 ![Blynk Dashboard](application.png)
 
-## 7. Author
+## Author
 **Piyush Sambyal**
