@@ -5,7 +5,7 @@
 ![IoT](https://img.shields.io/badge/IoT-Blynk-green.svg)
 
 ## 1. Description
-This project is an IoT-based soil monitoring architecture built on an ESP32 microcontroller. It continuously tracks critical environmental and soil metrics, sampling data every 10 seconds. The system pushes real-time telemetry to a remote Blynk IoT dashboard, displays live readings locally on an OLED screen, and integrates with a Machine Learning API to predict the overall health state of the soil (Healthy, Moderate, or Critical). An automated buzzer acts as a fail-safe alert when readings cross into critical thresholds.
+This project is an IoT-based soil monitoring architecture built on an ESP32 microcontroller. It continuously tracks critical environmental and soil metrics, sampling data every 10 seconds. The system pushes real-time telemetry to a remote Blynk IoT dashboard, displays live readings locally on an OLED screen, and integrates with a Machine Learning to predict the overall health state of the soil (Healthy, Moderate, or Critical). An automated buzzer acts as a fail-safe alert when readings cross into critical thresholds.
 
 **Key Features:**
 *   **Multi-Sensor Tracking:** Monitors Temperature, Humidity, Soil Moisture, Light Intensity, and Air Quality (Gas).
