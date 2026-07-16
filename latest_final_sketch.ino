@@ -13,18 +13,18 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
-// WiFi
+// WiFi Config
 char ssid[] = "hello2";
 char pass[] = "hello1234";
 
 String serverName = "http://10.160.56.28:5000/predict";
 
-// OLED
+// OLED Screen Display
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 
-// Sensors
+// Sensors 
 Adafruit_SHT4x sht4 = Adafruit_SHT4x();
 Adafruit_VCNL4040 vcnl = Adafruit_VCNL4040();
 
@@ -47,7 +47,7 @@ void setup() {
     Serial.print(".");
   }
 
-  // Blynk
+  // Blynk 
   Blynk.config(BLYNK_AUTH_TOKEN);
   Blynk.connect();
 
@@ -73,7 +73,7 @@ void setup() {
 void loop() {
   Blynk.run();
 
-  // SENSOR READINGS
+  // Sensor Readings
   int soilRaw = analogRead(SOIL_PIN);
   int soilPercent = map(soilRaw, dry, wet, 0, 100);
   soilPercent = constrain(soilPercent, 0, 100);
@@ -85,20 +85,20 @@ void loop() {
 
   uint16_t light = vcnl.getLux();
 
-  // SEND TO BLYNK
+  // Send to BLYNK
   Blynk.virtualWrite(V0, soilPercent);
   Blynk.virtualWrite(V1, temp.temperature);
   Blynk.virtualWrite(V2, humidity.relative_humidity);
   Blynk.virtualWrite(V3, light);
   Blynk.virtualWrite(V4, gas);
 
-  // SEND TO ML
+  // Send to ML
   sendToML(soilPercent, temp.temperature, humidity.relative_humidity, light, gas);
 
   delay(5000);
 }
 
-// -------- ML FUNCTION --------
+// ML FUNCTION
 void sendToML(int soil, float temp, float hum, int light, int gas) {
 
   HTTPClient http;
@@ -127,10 +127,10 @@ void sendToML(int soil, float temp, float hum, int light, int gas) {
     else
       prediction = "Critical";
 
-    // SEND TO BLYNK
+    // Sent to BLYNK
     Blynk.virtualWrite(V5, prediction);
 
-    // OLED DISPLAY
+    // OLED Display
     display.clearDisplay();
 
     display.setCursor(0, 0);
@@ -153,7 +153,7 @@ void sendToML(int soil, float temp, float hum, int light, int gas) {
 
     display.display();
 
-    // BUZZER ALERT
+    // Buzzer Alert
     if (prediction == "Critical") {
       digitalWrite(BUZZER_PIN, HIGH);
       delay(5000);
