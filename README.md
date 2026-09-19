@@ -64,7 +64,7 @@ Install the following via the Arduino Library Manager:
 3.  **Configure the ML Server Endpoint:**
     Update the `serverName` variable with the IP address of your machine learning prediction server:
     ```cpp
-    String serverName = "http://YOUR_SERVER_IP:5000/predict";
+    String serverName = "http://YOUR_SERVER_IP:4000/predict";
     ```
 4.  **Flash the Code:** Connect your ESP32 and upload the sketch.
 
